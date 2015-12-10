@@ -7,10 +7,11 @@ var LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click': function() {
-      this.model.play();
+      this.model.enqueue();
+      //flag set to true
     }
   },
-
+//connection gone - i'll try set up zoom, my net is running fine?
   render: function(){
     return this.$el.html(this.template(this.model.attributes));
   }
