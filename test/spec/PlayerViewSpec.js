@@ -53,33 +53,5 @@ describe('PlayerView', function() {
     });
   });
 
-  describe('Song removal',function(){
-      it('Removes a song when the user clicks on it',function(){
-
-          model = new SongModel({
-              artist: 'Fakey McFakerson',
-              title: 'Never Gonna Mock You Up',
-              url: 'example/url',
-          });
-          view = new LibraryEntryView({model: model});
-
-          view.render();
-          var firstSong = library.at(0)
-              , secondSong = library.at(1)
-              , thirdSong = library.at(2)
-              , songQueue = appView.model.get('songQueue');
-          // Set up a queue of three songs
-          songQueue.add(firstSong);
-          songQueue.add(secondSong);
-          songQueue.add(thirdSong);
-
-
-          view.$el.children().first().click();
-
-          expect(songQueue.at(1)).to.equal(thirdSong);
-          expect(songQueue.at(2)).to.equal(undefined);
-          //
-      })
-  })
 
 });
